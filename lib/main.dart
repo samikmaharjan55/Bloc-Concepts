@@ -5,8 +5,12 @@ import 'package:flutter_bloc_concepts/logic/cubit/counter_cubit.dart';
 import 'package:flutter_bloc_concepts/logic/cubit/internet_cubit.dart';
 import 'package:flutter_bloc_concepts/logic/cubit/settings_cubit.dart';
 import 'package:flutter_bloc_concepts/presentation/router/app_router.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+void main() async {
+  HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: await getApplicationDocumentsDirectory());
   //final CounterState counterState1 = CounterState(counterValue: 1);
   //final CounterState counterState2 = CounterState(counterValue: 1);
   runApp(MyApp(
